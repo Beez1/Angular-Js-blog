@@ -98,6 +98,10 @@
     }
   },
   "cli": {
+<<<<<<< HEAD
     "analytics": "00cca812-e9fc-456f-814a-bff1899dc611"
+=======
+    "analytics": "81edceca-715b-4c17-b4fe-610d232a694d"
+>>>>>>> fd44080 (questionary for experts created, but has to connected with database)
   }
 }

@@ -1,0 +1,10 @@
+<div *ngIf="currentQuestionIndex < questions.length">
+  <h2>Question {{ currentQuestionIndex + 1 }}</h2>
+  <p>{{ questions[currentQuestionIndex].question }}</p>
+  <div *ngFor="let option of questions[currentQuestionIndex].options; let i = index">
+    <input type="radio" name="option{{ currentQuestionIndex }}" [value]="i" (change)="selectOption(i)">
+    <label>{{ option }}</label>
+  </div>
+  <button *ngIf="currentQuestionIndex < questions.length - 1" (click)="nextQuestion()">Next Question</button>
+  <button *ngIf="currentQuestionIndex === questions.length - 1" >Send</button>
+</div>
