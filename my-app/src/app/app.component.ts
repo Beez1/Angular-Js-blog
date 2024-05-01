@@ -14,4 +14,4 @@ import { SideComponent } from './side/side.component';
 })
 export class AppComponent {
   title = 'my-app';
-}
+} 

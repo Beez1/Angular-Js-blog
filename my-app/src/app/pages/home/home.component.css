@@ -7,11 +7,15 @@
 
 /* Setting background image */
 body {
-    background-image: url('https://unsplash.com/photos/black-textile-on-white-textile-W_5Eakb1598/download?force=true&w=1920');
+    background-image: url("./images/cat-han-W_5Eakb1598-unsplash.jpg");
     background-size: cover;
     background-position: center;
     font-family: Arial, sans-serif;
 }
+
+.gamma{
+    color: white;
+    }
 
 /* Applying styles to the navbar */
 .navbar {
@@ -31,6 +35,7 @@ body {
 .navbar-logo img {
     width: 100px; /* Adjust width as needed */
     height: auto;
+    
 }
 
 /* Applying styles to the search bar */
@@ -82,7 +87,7 @@ body {
     left: 50%;
     width: 200%;
     height: 200%;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(255, 255, 255);
     border-radius: 50%;
     transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
     z-index: -1;

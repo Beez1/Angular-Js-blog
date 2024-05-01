@@ -55,4 +55,4 @@ export class SideComponent {
 //  logSelectedAnswers();
 
 
-}
+} 
