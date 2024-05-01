@@ -1,0 +1,98 @@
+/* Resetting default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Setting background image */
+body {
+    background-image: url('https://unsplash.com/photos/black-textile-on-white-textile-W_5Eakb1598/download?force=true&w=1920');
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+}
+
+/* Applying styles to the navbar */
+.navbar {
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Applying styles to the logo */
+.navbar-logo img {
+    width: 100px; /* Adjust width as needed */
+    height: auto;
+}
+
+/* Applying styles to the search bar */
+.navbar-search {
+    flex-grow: 1; /* Allow the search bar to grow and take up space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-search input[type="text"] {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+}
+
+.navbar-search button {
+    padding: 8px 16px;
+    background-color: #fff;
+    border: none;
+    border-radius: 20px;
+    margin-left: 8px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Applying styles to the links container */
+.navbar-links {
+    text-align: center;
+}
+
+/* Applying styles to the links */
+.navbar-links a {
+    color: #fff; /* White text */
+    text-decoration: none;
+    margin: 0 20px; /* Adjust spacing between links */
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Holographic effect */
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 200%;
+    height: 200%;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+    z-index: -1;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+}
+
+.navbar-links a:hover::after {
+    width: 0;
+    height: 0;
+    background-color: transparent;
+    opacity: 1;
+}
