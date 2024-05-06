@@ -5,6 +5,6 @@
     <input type="radio" name="option{{ currentQuestionIndex }}" [value]="i" (change)="selectOption(i)">
     <label class="white-text">{{ option }}</label>
   </div>
-  <button *ngIf="currentQuestionIndex < questions.length - 1" (click)="nextQuestion()" class="white-text">Next Question</button>
+  <button *ngIf="currentQuestionIndex < questions.length - 1" (click)="nextQuestion()" class="black">Next Question</button>
   <button *ngIf="currentQuestionIndex === questions.length - 1" class="white-text">Send</button>
 </div>

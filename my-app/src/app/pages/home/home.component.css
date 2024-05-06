@@ -101,3 +101,21 @@ body {
     background-color: transparent;
     opacity: 1;
 }
+
+.welcome-message {
+    border: 5px solid #333; /* 5px border width, solid line style, and dark grey color */
+    padding: 20px; /* 20px of space between the border and the text */
+    border-radius: 10px; /* 10px border radius for rounded corners */
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 10px blur, 0px horizontal offset, 0px vertical offset, and 20% opacity dark shadow */
+    background-color: #f9f9f9; /* Light grey background color */
+    width: 80%; /* Make the width 80% of the screen */
+    margin: auto; /* Center the element horizontally */
+    display: flex; /* Use flexbox to center the text */
+    justify-content: center; /* Center the text horizontally */
+    align-items: center; /* Center the text vertically */
+}
+
+.welcome-message h1 {
+    text-align: center; /* Center the heading text */
+    color: #333; /* Dark grey text color */
+}

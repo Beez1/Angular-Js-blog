@@ -3,5 +3,9 @@ h2 {
 }
 
 .white-text {
-    color: #fff; /* Set text color to white */
+    color: #ffffff; /* Set text color to white */
+}
+
+black {
+    color: #000000; /* Set text color to black */
 }

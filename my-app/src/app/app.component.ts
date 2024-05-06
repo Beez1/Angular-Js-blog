@@ -13,5 +13,5 @@ import { SideComponent } from './side/side.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'my-app';
+  title = 'buzzbrainblogs';
 } 
