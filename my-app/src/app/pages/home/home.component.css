@@ -18,8 +18,9 @@ body {
     }
 
 /* Applying styles to the navbar */
+/* Applying styles to the navbar */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+    background-color: #000; /* Black background */
     padding: 10px 0; /* Adjust padding as needed */
 }
 
@@ -35,38 +36,51 @@ body {
 .navbar-logo img {
     width: 100px; /* Adjust width as needed */
     height: auto;
-    
 }
 
 /* Applying styles to the search bar */
 .navbar-search {
-    flex-grow: 1; /* Allow the search bar to grow and take up space */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+    flex: 1; /* Added to occupy remaining space */
 }
 
 .navbar-search input[type="text"] {
     padding: 8px 16px;
-    border: none;
+    border: 2px solid #fff; /* White border */
     border-radius: 20px;
     outline: none;
     font-size: 16px;
+    color: #fff; /* White text */
+    background-color: transparent; /* Transparent background */
+    transition: border-color 0.3s ease;
+}
+
+.navbar-search input[type="text"]:focus {
+    border-color: #777; /* Grey border on focus */
 }
 
 .navbar-search button {
     padding: 8px 16px;
-    background-color: #fff;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
     border: none;
-    border-radius: 20px;
-    margin-left: 8px;
+    border-radius: 30px;
     cursor: pointer;
     font-size: 16px;
+    margin-left: 10px; /* Added margin to separate the input and button */
+    transition: transform 0.3s ease;
+}
+
+.navbar-search button:hover {
+    transform: scale(1.1); /* Scale up on hover */
 }
 
 /* Applying styles to the links container */
 .navbar-links {
     text-align: center;
+    flex: 1; /* Added to occupy remaining space */
 }
 
 /* Applying styles to the links */
@@ -77,45 +91,63 @@ body {
     font-size: 18px;
     position: relative;
     display: inline-block;
+    transition: color 0.3s ease;
 }
 
-/* Holographic effect */
 .navbar-links a::after {
     content: '';
     position: absolute;
-    top: 50%;
+    top: 100%;
     left: 50%;
-    width: 200%;
-    height: 200%;
-    background-color: rgb(255, 255, 255);
-    border-radius: 50%;
-    transition: width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
-    z-index: -1;
-    transform: translate(-50%, -50%);
-    opacity: 0;
+    width: 0%;
+    height: 2px;
+    background-color: #fff; /* White underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #777; /* Grey text on hover */
 }
 
 .navbar-links a:hover::after {
-    width: 0;
-    height: 0;
-    background-color: transparent;
-    opacity: 1;
+    width: 100%;
+    left: 0; /* Slide underline from center to left on hover */
+}
+
+/* Adjust the layout for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+    .navbar-search {
+        justify-content: flex-end; /* Align search to the right */
+    }
+
+    .navbar-search button {
+        margin-left: 0; /* Remove margin between input and button */
+    }
+
+    .navbar-links {
+        text-align: center; /* Center align links */
+    }
 }
 
 .welcome-message {
-    border: 5px solid #333; /* 5px border width, solid line style, and dark grey color */
-    padding: 20px; /* 20px of space between the border and the text */
-    border-radius: 10px; /* 10px border radius for rounded corners */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* 10px blur, 0px horizontal offset, 0px vertical offset, and 20% opacity dark shadow */
-    background-color: #f9f9f9; /* Light grey background color */
-    width: 80%; /* Make the width 80% of the screen */
-    margin: auto; /* Center the element horizontally */
-    display: flex; /* Use flexbox to center the text */
-    justify-content: center; /* Center the text horizontally */
-    align-items: center; /* Center the text vertically */
+    border: 5px solid #333;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    background-color: transparent;
+    width: 80%;
+    height: 450px; /* Added height property */
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url("./images/abstract-background-with-modern-halftone-dots-design_1048-13747\ \(1\).avif");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .welcome-message h1 {
     text-align: center; /* Center the heading text */
-    color: #333; /* Dark grey text color */
+    color: #ffffff; /* Dark grey text color */
 }
