@@ -50,7 +50,7 @@ body {
     padding: 8px 16px;
     border: 2px solid #fff; /* White border */
     border-radius: 20px;
-    outline: none;
+    outline: none; 
     font-size: 16px;
     color: #fff; /* White text */
     background-color: transparent; /* Transparent background */
@@ -130,7 +130,7 @@ body {
 }
 
 .welcome-message {
-    border: 5px solid #333;
+    border: 5px solid #615e5e;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
@@ -139,6 +139,7 @@ body {
     height: 450px; /* Added height property */
     margin: auto;
     display: flex;
+    flex-direction: column; /* Change flex-direction to column */
     justify-content: center;
     align-items: center;
     background-image: url("./images/abstract-background-with-modern-halftone-dots-design_1048-13747\ \(1\).avif");
@@ -150,4 +151,12 @@ body {
 .welcome-message h1 {
     text-align: center; /* Center the heading text */
     color: #ffffff; /* Dark grey text color */
+    margin-bottom: 20px; /* Add some space below the heading */
+}
+
+.button-welcome {
+    color: #fff;
+    border-radius: 20px; /* Add rounded borders */
+    padding: 10px 20px;
+    box-shadow:white;
 }
