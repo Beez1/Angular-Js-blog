@@ -156,7 +156,28 @@ body {
 
 .button-welcome {
     color: #fff;
-    border-radius: 20px; /* Add rounded borders */
-    padding: 10px 20px;
-    box-shadow:white;
+    position: relative; /* Add position relative for pseudo-element positioning */
+    display: inline-block;
+    transition: color 0.3s ease;
 }
+
+.button-welcome::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #fff; /* White underline */
+    transition: width 0.2s ease, left 0.2s ease, right 0.2s ease;
+}
+
+.button-welcome:hover {
+    color: #777; /* Grey text on hover */
+}
+
+.button-welcome:hover::after {
+    width: 100%;
+    left: 0; /* Slide underline from center to left on hover */
+}
+
