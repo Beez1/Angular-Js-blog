@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+/* Resetting default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Setting background image */
+body {
+  background-image: url("./assets/images/cat-han-W_5Eakb1598-unsplash.jpg");
+  background-size: cover;
+  background-position: center;
+  font-family: Arial, sans-serif;
+}

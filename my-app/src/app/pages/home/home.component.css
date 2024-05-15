@@ -1,18 +1,3 @@
-/* Resetting default browser styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* Setting background image */
-body {
-    background-image: url("./images/cat-han-W_5Eakb1598-unsplash.jpg");
-    background-size: cover;
-    background-position: center;
-    font-family: Arial, sans-serif;
-}
-
 .gamma{
     color: white;
     }
@@ -142,7 +127,7 @@ body {
     flex-direction: column; /* Change flex-direction to column */
     justify-content: center;
     align-items: center;
-    background-image: url("./images/abstract-background-with-modern-halftone-dots-design_1048-13747\ \(1\).avif");
+    background-image: url("/assets/images/abstract-background-with-modern-halftone-dots-design_1048-13747\ \(1\).avif");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -180,4 +165,34 @@ body {
     width: 100%;
     left: 0; /* Slide underline from center to left on hover */
 }
+/* Style for the container */
+.diy-container {
+    max-width: 600px;
+    margin: 30px auto;
+}
 
+/* Style for each question */
+.diy-question {
+    margin-bottom: 20px;
+    background-color: #333; /* Background color for each question */
+    padding: 15px; /* Padding around each question */
+    border-radius: 8px; /* Rounded corners for each question */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for each question */
+}
+
+/* Style for question text */
+.question {
+    cursor: pointer;
+    color: white;
+    margin: 0; /* Remove default margin */
+}
+
+/* Style for the answer */
+.answer p {
+    margin-top: 5px;
+    color: white;
+}
+
+.hidden {
+    display: none;
+}
