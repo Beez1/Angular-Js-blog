@@ -1,2 +1,22 @@
 <app-home></app-home>
 <app-side></app-side>
+<!----
+<form (ngSubmit)="submitForm()">
+  <div>
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" [(ngModel)]="userData.name" required>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
+  </div>
+  <button type="submit">Save</button>
+</form>
+
+<div *ngFor="let user of users">
+  <p>Name: {{ user.name }}</p>
+  <p>Email: {{ user.email }}</p>
+</div>
+--->
+<app-register [btnText] = "btnText"></app-register>
+<app-questions></app-questions>
