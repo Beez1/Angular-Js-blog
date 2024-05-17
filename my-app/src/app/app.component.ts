@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { SideComponent } from './side/side.component';
-import { RegisterComponent} from './register/register.component';
-import { QuestionsComponent} from './questions/questions.component';
+import { RegisterComponent } from './register/register.component';
+import { QuestionsComponent } from './questions/questions.component';
+import { DisplayQuestionsComponent } from './display-questions/display-questions.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
 
 
 
@@ -18,9 +19,21 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, SideComponent, RegisterComponent, FormsModule, HttpClientModule, CommonModule, QuestionsComponent],
+  imports: [
+    RouterOutlet,
+    HomeComponent,
+    SideComponent,
+    RegisterComponent,
+    DisplayQuestionsComponent,
+    QuestionsComponent,
+    FormsModule,
+    HttpClientModule,
+    CommonModule,
+    NavbarComponent
+
+  ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit {
   btnText = 'send! '; //reusing the button from register component, just changing the button variable

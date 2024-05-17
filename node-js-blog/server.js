@@ -40,7 +40,7 @@ const questionSchema = new mongoose.Schema({
   date: String,
   answered: String
 });
-const Question = mongoose.model('question', questionSchema);
+const Question = mongoose.model('Questions', questionSchema);
 
 //---------------------------------------------------------------
 //edn bd schemas
@@ -55,7 +55,7 @@ app.post('/addQuestion', (req, res) => {
 
   question.save().then(savedQuestion => {
     console.log('Question saved:', savedQuestion);
-    res.status(200).json({ message: 'Question saved successfully!' });
+    res.status(200).json({ message: 'Question saved successfully!' });    
   }).catch(err => {
     console.error('Error saving Question:', err);
     res.status(500).json({ message: 'Error saving Question.' });
@@ -80,8 +80,7 @@ app.post('/saveUser', (req, res) => {
 // end add data to bd
 //---------------------------------------------------------------
 
-
-
+//find in database
 app.get('/users', (req, res) => {
   User.find().then(users => {
     res.json(users); // Send the users data as JSON response
@@ -91,6 +90,14 @@ app.get('/users', (req, res) => {
   });
 });
 
+app.get('/displayQuestions', (req, res) => {  
+  Question.find().then(question => {
+    res.json(question); // Send questions data as JSON response
+  }).catch(err => {
+    console.error('Error fetching questions:', err);
+    res.status(500).json({ message: 'Error fetching questions.' });
+  });
+});
 
 
 

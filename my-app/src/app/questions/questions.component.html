@@ -1,18 +1,16 @@
-
+<p>questions works!</p>
 <form (ngSubmit)="submitForm2()" class="row g-3">
-  <div class="form-group">
-        <label class="form-label">Title:</label>
-        <input type="text" class="form-control" name="title" id="title" name="title"  [(ngModel)]="questionData.title" required>
-  </div>
-      <div class="form-group">
-        <label class="form-label">categories:</label>
-        <input type="text" class="form-control" name="categories" id="categories" name="categories"  [(ngModel)]="questionData.categories"  required>
-      </div>
-      <div class="form-group">
-        <label class="form-label">Question:</label>
-        <textarea class="form-control" id="question_content" name="question_content" rows="5"  [(ngModel)]="questionData.question" required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary">Create Post</button>
-
-</form>
-
+    <div class="form-group">
+      <label class="form-label">Title:</label>
+      <input type="text" class="form-control" id="title" name="title" [(ngModel)]="questionData.title" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Categories:</label>
+      <input type="text" class="form-control" id="categories" name="categories" [(ngModel)]="questionData.categories" required>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Question:</label>
+      <textarea class="form-control" id="question_content" name="question_content" rows="5" [(ngModel)]="questionData.question" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Create Post</button>
+  </form>

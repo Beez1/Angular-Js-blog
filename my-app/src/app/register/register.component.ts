@@ -1,45 +1,44 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http'; // Importe o HttpClient
-import { FormsModule } from '@angular/forms'; // Importe FormsModule
-import { HttpClientModule } from '@angular/common/http'; // Import HttpClientModule
-
+import { HttpClient } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
   standalone: true,
   imports: [FormsModule, HttpClientModule],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   @Input() btnText!: string;
 
-  userData = { // define userData
+  userData = {
     name: '',
     email: '',
     password: ''
   };
   users: any[] = [];
 
-  constructor(private http: HttpClient) {} // injection  HttpClient in the constructor
+  constructor(private http: HttpClient, private router: Router) {}
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   submitForm() {
     this.http.post<any>('http://localhost:3000/saveUser', this.userData).subscribe({
       next: response => {
         console.log(response);
-        // clean up form after send data
         this.userData = {
           name: '',
           email: '',
           password: ''
         };
+        // Redireciona para a página user.component após o envio bem-sucedido
+        this.router.navigate(['register']);
       },
       error: error => {
-        console.error('Erro to save user:', error);
+        console.error('Erro ao salvar usuário:', error);
       }
     });
   }

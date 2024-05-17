@@ -1,5 +1,5 @@
 <app-home></app-home>
-<app-side></app-side>
+<!----<app-side></app-side> --->
 <!----
 <form (ngSubmit)="submitForm()">
   <div>
@@ -17,6 +17,12 @@
   <p>Name: {{ user.name }}</p>
   <p>Email: {{ user.email }}</p>
 </div>
---->
-<app-register [btnText] = "btnText"></app-register>
+
 <app-questions></app-questions>
+<app-navbar></app-navbar>
+--->
+<router-outlet></router-outlet>
+
+
+<app-register [btnText] = "btnText"></app-register>
+
