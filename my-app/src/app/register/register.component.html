@@ -1,15 +1,35 @@
-<form (ngSubmit)="submitForm()">
-  <div>
-    <label for="name">Name:</label>
-    <input type="text" id="name" name="name" [(ngModel)]="userData.name" required>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header bg-primary text-white text-center">
+            <h3>Register</h3>
+          </div>
+          <div class="card-body">
+            <form (ngSubmit)="submitForm()">
+              <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" id="name" name="name" class="form-control" [(ngModel)]="userData.name" required>
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label">E-mail</label>
+                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="userData.email" required>
+              </div>
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="userData.password" required>
+              </div>
+              <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Repeat Password</label>
+                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
+              </div>
+              <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <button type="button" class="btn btn-secondary btn-block">{{ btnText }}</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" [(ngModel)]="userData.email" required>
-  </div>
-  <div>
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" [(ngModel)]="userData.password" required>
-  </div>
-  <button type="submit">{{ btnText }}</button>
-</form>

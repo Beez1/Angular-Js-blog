@@ -1,11 +1,26 @@
-<p>questions works!</p>
-<div *ngFor="let quest of question">
-    <p>title: {{ quest.title }}</p>    
-    <p>categories: {{ quest.categories }}</p>
-    <p>question: {{ quest.question }}</p>
-    <p>author: {{ quest.author }}</p>
-    <p>upvotes: {{ quest.upvotes }}</p>
-    <p>date: {{ quest.date }}</p>
-    <p>answered: {{ quest.answered }}</p>
+<div class="container mt-5">
+    <div class="row">
+      <div class="col-md-6 mb-4" *ngFor="let quest of question">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{ quest.title }}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{ quest.categories }}</h6>
+            <p class="card-text">{{ quest.question }}</p>
+            <hr>
+            <p class="card-text"><strong>Author:</strong> {{ quest.author }}</p>
+            <div class="d-flex justify-content-between">
+              <p class="card-text mb-0"><strong>Upvotes:</strong> {{ quest.upvotes }}</p>
+              <p class="card-text mb-0"><strong>Date:</strong> {{ quest.date }}</p>
+            </div>
+            <p class="card-text mt-2">
+              <strong>Answered:</strong>
+              <span class="badge" [ngClass]="{'bg-success': quest.answered, 'bg-danger': !quest.answered}">
+                {{ quest.answered ? 'Yes' : 'No' }}
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+  

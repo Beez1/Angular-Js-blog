@@ -35,10 +35,10 @@ export class RegisterComponent implements OnInit {
           password: ''
         };
         // Redireciona para a página user.component após o envio bem-sucedido
-        this.router.navigate(['register']);
+        this.router.navigate(['displayQuestions']);
       },
       error: error => {
-        console.error('Erro ao salvar usuário:', error);
+        console.error('Erro save user:', error);
       }
     });
   }

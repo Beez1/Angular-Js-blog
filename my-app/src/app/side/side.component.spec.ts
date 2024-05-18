@@ -20,4 +20,4 @@ describe('SideComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-});
+}); 

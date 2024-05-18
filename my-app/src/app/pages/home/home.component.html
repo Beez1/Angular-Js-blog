@@ -1,2 +1,28 @@
-<p>home works!</p>
+<div class="navbar">
+    <div class="navbar-grid">
+        <div class="navbar-links">
+            <a [routerLink]="'/home'">Home</a>                
+            <a [routerLink]="'/displayQuestions'">Questions</a>
+            <a [routerLink]="'/register'">Registration</a>
+            <a href="#">Login</a>
+            <a href="#">Admin Tools</a>
+        </div>
+        <div class="navbar-search">
+            <input type="text" placeholder="Search">
+            <button type="submit">🔍</button>
+        </div>
+    </div>
+</div>
+<div class="welcome-message">
+    <h1>Welcome to Buzz Brains Blog</h1>
+    <a href="#" class="button-welcome">Answers?</a>
+</div>
 
+<div class="diy-container" *ngIf="isHomeRoute">
+    <div class="diy-question" *ngFor="let question of DIYQuestions; let idx = index" (click)="showAnswer(idx)">
+      <h3 class="question">{{question.question}}</h3>
+      <div class="answer" [ngClass]="{'hidden': question.answerHidden}">
+        <p>{{question.answer}}</p>
+      </div>
+    </div>
+</div>

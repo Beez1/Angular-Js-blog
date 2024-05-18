@@ -3,11 +3,13 @@ import { RegisterComponent } from './register/register.component';
 import { QuestionsComponent } from './questions/questions.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DisplayQuestionsComponent } from './display-questions/display-questions.component';
+import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   { path: 'questions', component: QuestionsComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'displayQuestions', component: DisplayQuestionsComponent },
-  { path: '', redirectTo: '/register', pathMatch: 'full' }
+  { path: 'home', component: HomeComponent },
+  { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
