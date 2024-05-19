@@ -64,18 +64,17 @@
 
 /* Applying styles to the links container */
 .navbar-links {
-    text-align: center;
-    flex: 1; /* Added to occupy remaining space */
+    display: flex;
+    align-items: flex-start;/* Added to occupy remaining space */
 }
 
 /* Applying styles to the links */
 .navbar-links a {
     color: #fff; /* White text */
     text-decoration: none;
-    margin: 0 20px; /* Adjust spacing between links */
+    margin: 0 15px; /* Adjust spacing between links */
     font-size: 18px;
     position: relative;
-    display: inline-block;
     transition: color 0.3s ease;
 }
 
