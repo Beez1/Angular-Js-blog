@@ -1,44 +1,48 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [FormsModule, CommonModule], // Remove HttpClientModule
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
 export class RegisterComponent implements OnInit {
   @Input() btnText!: string;
 
   userData = {
     name: '',
     email: '',
-    password: ''
+    password: '',
+    acessLevel: 1
   };
   users: any[] = [];
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private http: HttpClientModule) {}
 
   ngOnInit(): void {}
 
   submitForm() {
-    this.http.post<any>('http://localhost:3000/saveUser', this.userData).subscribe({
+    this.authService.register(this.userData.name, this.userData.email, this.userData.password, this.userData.acessLevel).subscribe({
       next: response => {
-        console.log(response);
         this.userData = {
-          name: '',
-          email: '',
-          password: ''
-        };
-        // Redireciona para a página user.component após o envio bem-sucedido
-        this.router.navigate(['displayQuestions']);
+             name: '',
+             email: '',
+             password: '',
+            acessLevel: 1
+            };
+            // Redireciona para a página desejada após o registro bem-sucedido
+            this.router.navigate(['/displayQuestions']);
       },
       error: error => {
-        console.error('Erro save user:', error);
+        console.error('Error register question', error);
       }
     });
   }
