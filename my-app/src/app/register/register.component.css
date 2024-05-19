@@ -1,0 +1,134 @@
+/* Styles for the navbar */
+.navbar {
+    background-color: #000; /* Black background */
+    padding: 10px 0; /* Adjust padding as needed */
+}
+
+.navbar-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.navbar-search {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex: 1; /* Added to occupy remaining space */
+}
+
+.navbar-search input[type="text"] {
+    padding: 8px 16px;
+    border: 2px solid #fff; /* White border */
+    border-radius: 20px;
+    outline: none; 
+    font-size: 16px;
+    color: #fff; /* White text */
+    background-color: transparent; /* Transparent background */
+    transition: border-color 0.3s ease;
+}
+
+.navbar-search input[type="text"]:focus {
+    border-color: #777; /* Grey border on focus */
+}
+
+.navbar-search button {
+    padding: 8px 16px;
+    background-color: #fff; /* White background */
+    color: #000; /* Black text */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 10px; /* Added margin to separate the input and button */
+    transition: transform 0.3s ease;
+}
+
+.navbar-search button:hover {
+    transform: scale(1.1); /* Scale up on hover */
+}
+
+/* Applying styles to the links container */
+.navbar-links {
+    display: flex;
+    align-items: flex-start;/* Added to occupy remaining space */
+}
+
+/* Applying styles to the links */
+.navbar-links a {
+    color: #fff; /* White text */
+    text-decoration: none;
+    margin: 0 15px; /* Adjust spacing between links */
+    font-size: 18px;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar-links a::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0%;
+    height: 2px;
+    background-color: #fff; /* White underline */
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-links a:hover {
+    color: #777; /* Grey text on hover */
+}
+
+.navbar-links a:hover::after {
+    width: 100%;
+    left: 0; /* Slide underline from center to left on hover */
+}
+
+/* Adjust the layout for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+    .navbar-search {
+        justify-content: flex-end; /* Align search to the right */
+    }
+
+    .navbar-search button {
+        margin-left: 0; /* Remove margin between input and button */
+    }
+
+    .navbar-links {
+        text-align: center; /* Center align links */
+    }
+}
+
+/* for fonts */
+.login-container{
+    
+}
+.h2-lf {
+    color: #ffffff;
+}
+
+.form-group{
+    color: #fff;
+}
+
+.login-form{
+
+}
+
+
+
+/* Styles for the footer */
+.footer {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+
+
+
