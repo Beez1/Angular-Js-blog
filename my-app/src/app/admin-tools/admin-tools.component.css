@@ -105,43 +105,51 @@
 
 
 .post {
-    background-color: white;
-    padding: 20px;
-    border: 1px solid #ddd;
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    padding: 10px; /* Adjust padding to reduce height */
+    border: 2px solid #fff; /* White border */
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 400px;
-  }
-  .post-title {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    width: 80%; /* Adjust width as needed */
+    max-width: 800px; /* Maximum width for responsiveness */
+    margin: 20px auto; /* Center horizontally and add space between posts */
+}
+
+.post-title {
     font-size: 1.5em;
-    margin-bottom: 10px;
-  }
-  .post-username {
-    color: #888;
-    margin-bottom: 15px;
-  }
-  .post-content {
-    margin-bottom: 20px;
-  }
-  .post-actions button {
-    padding: 10px 15px;
-    margin-right: 10px;
-    border: none;
+    margin-bottom: 5px; /* Reduce margin bottom */
+}
+
+.post-username {
+    color: #bbb; /* Light grey for username */
+    margin-bottom: 10px; /* Reduce margin bottom */
+}
+
+.post-content {
+    margin-bottom: 10px; /* Reduce margin bottom */
+}
+
+.post-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+}
+
+.post-actions button {
+    padding: 5px 10px; /* Reduce padding */
+    margin-left: 10px;
+    border: 2px solid #fff; /* White border */
     border-radius: 3px;
     cursor: pointer;
-  }
-  .edit-button {
-    background-color: #4CAF50;
-    color: white;
-  }
-  .delete-button {
-    background-color: #f44336;
-    color: white;
-  }
-  .view-button {
-    background-color: #008CBA;
-    color: white;
-  }
+    background-color: #000; /* Black background */
+    color: #fff; /* White text */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.post-actions button:hover {
+    background-color: #333; /* Darker background on hover */
+    transform: scale(1.1); /* Scale up on hover */
+}
 
 .footer {
     text-align: center;
