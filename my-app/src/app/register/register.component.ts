@@ -1,14 +1,16 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';  
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { CommonModule } from '@angular/common';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule], // Remove HttpClientModule
+  imports: [CommonModule, RouterOutlet, RouterModule, FormsModule, HttpClientModule], // Remove HttpClientModule
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })

@@ -1,16 +1,15 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { RouterOutlet, RouterModule } from '@angular/router';  
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule, FormsModule, HttpClientModule],  
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })

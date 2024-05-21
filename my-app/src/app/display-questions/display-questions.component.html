@@ -1,10 +1,11 @@
 <div class="navbar">
   <div class="navbar-grid">
       <div class="navbar-links">
-          <a href="#">Home</a>
-          <a href="#">Questions</a>
-          <a href="#">Registration</a>
-          <a href="#">Admin Tools</a>
+        <a [routerLink]="'/home'">Home</a>                
+        <a [routerLink]="'/displayQuestions'">Curious</a>
+        <a [routerLink]="'/register'">Registration</a>
+        <a [routerLink]="'/questions'">Ask a question</a>
+        <a [routerLink]="'/adminTools'">Admin Tools</a>
       </div>
       <div class="navbar-search">
           <input type="text" placeholder="Search">
