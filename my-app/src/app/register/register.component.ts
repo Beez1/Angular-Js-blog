@@ -1,47 +1,65 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../auth/auth.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, CommonModule], // Remove HttpClientModule
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'] 
 })
-
-
 export class RegisterComponent implements OnInit {
   @Input() btnText!: string;
 
-  userData = {
-    name: '',
+  loginData = {
     email: '',
-    password: '',
-    acessLevel: 1
+    password: ''
   };
-  users: any[] = [];
 
-  constructor(private authService: AuthService, private router: Router, private http: HttpClientModule) {}
+  registerData = {
+    email: '',
+    password: ''
+  };
+
+  constructor(private http: HttpClient, private router: Router) {} // Injeção do Router adicionada
 
   ngOnInit(): void {}
 
-  submitForm() {
-    this.authService.register(this.userData.name, this.userData.email, this.userData.password, this.userData.acessLevel).subscribe({
+  submitLoginForm() {
+    this.http.post<any>('http://localhost:3000/login', this.loginData).subscribe({
       next: response => {
-        this.userData = {
-             name: '',
-             email: '',
-             password: '',
-            acessLevel: 1
-            };            
-            this.router.navigate(['/displayQuestions']);
+        console.log('Login response:', response);
+        
+        this.loginData = {
+          email: '',
+          password: ''
+        };
+        
+        this.router.navigate(['home']); 
       },
       error: error => {
-        console.error('Error register question', error);
+        console.error('Error login:', error);
+      }
+    });
+  }
+
+  submitRegisterForm() {
+    this.http.post<any>('http://localhost:3000/saveUser', this.registerData).subscribe({
+      next: response => {
+        console.log(response);
+        
+        this.registerData = {
+          email: '',
+          password: ''
+        };
+        
+        this.router.navigate(['/displayQuestions']); 
+      },
+      error: error => {
+        console.error('Erro ao salvar usuário:', error);
       }
     });
   }

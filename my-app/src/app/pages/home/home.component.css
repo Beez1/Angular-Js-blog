@@ -1,11 +1,7 @@
-.gamma{
-    color: white;
-    }
 
 /* Applying styles to the navbar */
 /* Applying styles to the navbar */
 .navbar {
-    
     background-color: #000; /* Black background */
     padding: 10px 0; /* Adjust padding as needed */
 }
@@ -18,11 +14,7 @@
     margin: 0 auto;
 }
 
-/* Applying styles to the logo */
-.navbar-logo img {
-    width: 100px; /* Adjust width as needed */
-    height: auto;
-}
+
 
 /* Applying styles to the search bar */
 .navbar-search {
@@ -65,18 +57,17 @@
 
 /* Applying styles to the links container */
 .navbar-links {
-    text-align: center;
-    flex: 1; /* Added to occupy remaining space */
+    display: flex;
+    align-items: flex-start;/* Added to occupy remaining space */
 }
 
 /* Applying styles to the links */
 .navbar-links a {
     color: #fff; /* White text */
     text-decoration: none;
-    margin: 0 20px; /* Adjust spacing between links */
+    margin: 0 15px; /* Adjust spacing between links */
     font-size: 18px;
     position: relative;
-    display: inline-block;
     transition: color 0.3s ease;
 }
 
@@ -197,3 +188,29 @@
 .hidden {
     display: none;
 }
+
+.diy-container-h1{
+    color: white;
+    text-align: center;
+    font-size: 32px; /* Adjust the font size as needed */
+    font-weight: bold; /* Make the text bold */
+    text-align: center; /* Center the text */
+    margin-bottom: 20px; /* Add some space below the heading */
+    border-bottom: 2px solid #615e5e; /* Add a black underline */
+    padding-bottom: 10px; /* Add some padding below the text */
+    font-family: 'Arial', sans-serif; /* Use a clean, sans-serif font */
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* smooth transition */
+}
+
+.diy-container-h1:hover {
+  opacity: 0.05; /* reduce opacity on hover */
+  transform: translateY(-10px); /* Move the heading up on hover */
+}
+
+.footer {
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    position: bottom;
+    width: 100%;
+  }

@@ -1,35 +1,54 @@
-<div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-6">
-        <div class="card">
-          <div class="card-header bg-primary text-white text-center">
-            <h3>Register</h3>
-          </div>
-          <div class="card-body">
-            <form (ngSubmit)="submitForm()">
-              <div class="mb-3">
-                <label for="name" class="form-label">Name</label>
-                <input type="text" id="name" name="name" class="form-control" [(ngModel)]="userData.name" required>
-              </div>
-              <div class="mb-3">
-                <label for="email" class="form-label">E-mail</label>
-                <input type="email" id="email" name="email" class="form-control" [(ngModel)]="userData.email" required>
-              </div>
-              <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" id="password" name="password" class="form-control" [(ngModel)]="userData.password" required>
-              </div>
-              <div class="mb-3">
-                <label for="password_confirmation" class="form-label">Repeat Password</label>
-                <input type="password" id="password_confirmation" name="password_confirmation" class="form-control" required>
-              </div>
-              <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary btn-block">Register</button>
-                <button type="button" class="btn btn-secondary btn-block">{{ btnText }}</button>
-              </div>
+<div class="login-wrap">
+    <div class="login-html">
+        <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
+        <label for="tab-1" class="tab">Log in</label>
+        <input id="tab-2" type="radio" name="tab" class="sign-up">
+        <label for="tab-2" class="tab">Sign Up</label>
+        <div class="login-form">
+            <form (ngSubmit)="submitLoginForm()">
+                <div class="sign-in-htm">
+                    <div class="group">
+                        <label for="email" class="label">Email</label>
+                        <input id="email" type="text" class="input" [(ngModel)]="loginData.email" name="email" required>
+                    </div>
+                    <div class="group">
+                        <label for="password" class="label">Password</label>
+                        <input id="password" type="password" class="input" data-type="password"
+                            [(ngModel)]="loginData.password" name="password" required>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Log in">
+                    </div>
+                    <div class="hr"></div>
+                    <div class="foot-lnk">
+
+                    </div>
+                </div>
             </form>
-          </div>
+            <form (ngSubmit)="submitRegisterForm()">
+                <div class="sign-up-htm">
+                    <div class="group">
+                        <label for="reg-email" class="label">Email</label>
+                        <input id="reg-email" type="text" class="input" [(ngModel)]="registerData.email" name="email" required>
+                    </div>
+                    <div class="group">
+                        <label for="reg-password" class="label">Password</label>
+                        <input id="reg-password" type="password" class="input" data-type="password"
+                            [(ngModel)]="registerData.password" name="password" required>
+                    </div>
+                    <div class="group">
+                        <label for="password_confirmation" class="label">Repeat password:</label>
+                        <input type="password" id="password_confirmation" name="password_confirmation" class="input"
+                            required>
+                    </div>
+                    <div class="group">
+                        <input type="submit" class="button" value="Sign Up">
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>
+<div class="footer">
+    © 2024 Buzz Brains Blog
+</div>

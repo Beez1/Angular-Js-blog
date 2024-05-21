@@ -1,13 +1,14 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { RouterOutlet, RouterModule } from '@angular/router';  
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common'; // Adicione esta linha
-import { RouterModule } from '@angular/router';
+
 
 @Component({
   selector: 'app-display-questions',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [CommonModule, RouterOutlet, RouterModule, FormsModule, HttpClientModule], 
   templateUrl: './display-questions.component.html',
   styleUrl: './display-questions.component.css'
 })
