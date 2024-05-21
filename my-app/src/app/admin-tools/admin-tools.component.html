@@ -1,48 +1,29 @@
-<div class="container mt-5">
-    <div class="admin-panel">
-      <h2 class="mb-4">Admin Tools</h2>
-      <!-- View Posts Section -->
-      <div class="view-posts mb-5">
-        <h3 class="mb-3">View Posts</h3>
-        <!-- Display posts from the database here -->
-        <!-- Each post can have edit and delete buttons -->
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Post Title 1</h5>
-            <p class="card-text">Post Content 1</p>
-            <button class="btn btn-primary btn-sm mr-2">Edit</button>
-            <button class="btn btn-danger btn-sm">Delete</button>
-          </div>
-        </div>
-        <div class="card mb-3">
-          <div class="card-body">
-            <h5 class="card-title">Post Title 2</h5>
-            <p class="card-text">Post Content 2</p>
-            <button class="btn btn-primary btn-sm mr-2">Edit</button>
-            <button class="btn btn-danger btn-sm">Delete</button>
-          </div>
-        </div>
-        <!-- Add a button for adding new posts -->
-        <button class="btn btn-success mt-3">Add New Post</button>
+<div class="navbar">
+  <div class="navbar-grid">
+      <div class="navbar-links">
+          <a href="'/home'">Home</a>                
+          <a href="'/displayQuestions'">Curious</a>
+          <a href="'/register'">Registration</a>
+          <a href="'/questions'">Ask a question</a>
+          <a href="'/adminTools'">Admin Tools</a>
       </div>
-      <!-- Add/Edit Post Section -->
-      <div class="edit-post">
-        <h3 class="mb-3">Edit Post</h3>
-        <!-- Form for editing/adding a post -->
-        <form>
-          <div class="form-group">
-            <label for="post-title">Title:</label>
-            <input type="text" class="form-control" id="post-title" name="post-title" required>
-          </div>
-          <div class="form-group">
-            <label for="post-content">Content:</label>
-            <textarea class="form-control" id="post-content" name="post-content" rows="4" required></textarea>
-          </div>
-          <!-- Hidden input to store post ID when editing -->
-          <input type="hidden" id="post-id" name="post-id">
-          <button type="submit" class="btn btn-primary">Save</button>
-          <button type="button" class="btn btn-secondary">Cancel</button>
-        </form>
+      <div class="navbar-search">
+          <input type="text" placeholder="Search">
+          <button type="submit">🔍</button>
       </div>
-    </div>
+  </div>
+</div>
+
+<div class="post">
+  <div class="post-title">Post Title</div>
+  <div class="post-username">Posted by: username</div>
+  <div class="post-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque eros nec augue tincidunt, a vulputate magna commodo.</div>
+  <div class="post-actions">
+    <button class="edit-button">Edit</button>
+    <button class="delete-button">Delete</button>
+    <button class="view-button">View</button>
+  </div>
+</div>
+<div class="footer">
+  © 2024 Buzz Brains Blog
   </div>

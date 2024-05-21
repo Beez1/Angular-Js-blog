@@ -1,4 +1,3 @@
-/* Styles for the navbar */
 .navbar {
     background-color: #000; /* Black background */
     padding: 10px 0; /* Adjust padding as needed */
@@ -12,6 +11,9 @@
     margin: 0 auto;
 }
 
+
+
+/* Applying styles to the search bar */
 .navbar-search {
     display: flex;
     justify-content: flex-end;
@@ -50,18 +52,19 @@
     transform: scale(1.1); /* Scale up on hover */
 }
 
+/* Applying styles to the links container */
 .navbar-links {
-    text-align: center;
-    flex: 1; /* Added to occupy remaining space */
+    display: flex;
+    align-items: flex-start;/* Added to occupy remaining space */
 }
 
+/* Applying styles to the links */
 .navbar-links a {
     color: #fff; /* White text */
     text-decoration: none;
-    margin: 0 20px; /* Adjust spacing between links */
+    margin: 0 15px; /* Adjust spacing between links */
     font-size: 18px;
     position: relative;
-    display: inline-block;
     transition: color 0.3s ease;
 }
 
@@ -85,10 +88,66 @@
     left: 0; /* Slide underline from center to left on hover */
 }
 
-/* Styles for the footer */
+/* Adjust the layout for smaller screens (e.g., mobile devices) */
+@media screen and (max-width: 600px) {
+    .navbar-search {
+        justify-content: flex-end; /* Align search to the right */
+    }
+
+    .navbar-search button {
+        margin-left: 0; /* Remove margin between input and button */
+    }
+
+    .navbar-links {
+        text-align: center; /* Center align links */
+    }
+}
+
+
+.post {
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+  }
+  .post-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  .post-username {
+    color: #888;
+    margin-bottom: 15px;
+  }
+  .post-content {
+    margin-bottom: 20px;
+  }
+  .post-actions button {
+    padding: 10px 15px;
+    margin-right: 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .edit-button {
+    background-color: #4CAF50;
+    color: white;
+  }
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+  .view-button {
+    background-color: #008CBA;
+    color: white;
+  }
+
 .footer {
     text-align: center;
     color: white;
     padding: 10px 0;
+    position: fixed;
+    bottom: 0;
     width: 100%;
-}
+  }
