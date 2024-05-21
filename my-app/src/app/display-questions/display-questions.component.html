@@ -1,26 +1,33 @@
-<div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 mb-4" *ngFor="let quest of question">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">{{ quest.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">{{ quest.categories }}</h6>
-            <p class="card-text">{{ quest.question }}</p>
-            <hr>
-            <p class="card-text"><strong>Author:</strong> {{ quest.author }}</p>
-            <div class="d-flex justify-content-between">
-              <p class="card-text mb-0"><strong>Upvotes:</strong> {{ quest.upvotes }}</p>
-              <p class="card-text mb-0"><strong>Date:</strong> {{ quest.date }}</p>
-            </div>
-            <p class="card-text mt-2">
-              <strong>Answered:</strong>
-              <span class="badge" [ngClass]="{'bg-success': quest.answered, 'bg-danger': !quest.answered}">
-                {{ quest.answered ? 'Yes' : 'No' }}
-              </span>
-            </p>
-          </div>
+<div class="navbar">
+    <div class="navbar-grid">
+        <div class="navbar-links">
+            <a href="#">Home</a>
+            <a href="#">Questions</a>
+            <a href="#">Registration</a>
+            <a href="#">Admin Tools</a>
         </div>
-      </div>
+        <div class="navbar-search">
+            <input type="text" placeholder="Search">
+            <button type="submit">🔍</button>
+        </div>
     </div>
   </div>
   
+  <div class="dq-answers">
+    <h1>Dear Curious Cat, here are questions, that have been answered previously.</h1>
+  </div>
+  
+  <!--display questions from database with answers <div class="question-container">
+    <div class="question">
+        <h2 class="question-title">Question 1</h2>
+        <p class="question-text">What is the capital of France?</p>
+    </div>
+    <div class="question">
+        <h2 class="question-title">Question 2</h2>
+        <p class="question-text">Who painted the Mona Lisa?</p>
+    </div> -->
+  <!--display questions from database with answers-->
+  
+  <div class="footer">
+    © 2024 Buzz Brains Blog
+  </div>

@@ -1,32 +1,36 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthService } from './auth/auth.service';
-import { RegisterComponent } from './register/register.component';
-import { QuestionsComponent } from './questions/questions.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+import { CommonModule } from '@angular/common';
+
+
+import { AppComponent } from './app.component';
 import { DisplayQuestionsComponent } from './display-questions/display-questions.component';
-import { HomeComponent } from './pages/home/home.component';
+
+
 
 const routes: Routes = [
-  { path: 'register', component: RegisterComponent },
-  { path: 'questions', component: QuestionsComponent },
-  { path: 'displayQuestions', component: DisplayQuestionsComponent },
-  { path: 'home', component: HomeComponent },
-  { path: '', redirectTo: '/register', pathMatch: 'full' }
+  { path: '', redirectTo: '/questions', pathMatch: 'full' },
+  { path: 'questions', component: DisplayQuestionsComponent },
+  
 ];
 
 @NgModule({
   declarations: [
-    RegisterComponent,
-    QuestionsComponent,
+    AppComponent,
     DisplayQuestionsComponent,
-    HomeComponent
+    
   ],
   imports: [
-    RouterModule.forRoot(routes),
-    HttpClientModule
+    BrowserModule,
+    HttpClientModule,
+    FormsModule,
+    RouterModule.forRoot(routes), // Import RouterModule and configure routes
+    CommonModule // Import CommonModule for ngClass
   ],
-  providers: [AuthService],
-  exports: [RouterModule]
+  providers: [],
+  bootstrap: [AppComponent]
 })
-export class AppRoutingModule { }
+export class AppModule { }

@@ -37,8 +37,7 @@ export class RegisterComponent implements OnInit {
              email: '',
              password: '',
             acessLevel: 1
-            };
-            // Redireciona para a página desejada após o registro bem-sucedido
+            };            
             this.router.navigate(['/displayQuestions']);
       },
       error: error => {

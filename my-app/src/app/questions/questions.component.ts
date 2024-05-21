@@ -3,14 +3,13 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 
 
 @Component({
   selector: 'app-questions',
   standalone: true,
-  imports: [FormsModule, HttpClientModule, CommonModule],
+  imports: [FormsModule, HttpClientModule],
   templateUrl: './questions.component.html',
   styleUrls: ['./questions.component.css']
 })
