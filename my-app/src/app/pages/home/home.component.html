@@ -4,7 +4,7 @@
     <a [routerLink]="'/displayQuestions'" class="button-welcome">Looking for answers ?? </a>
 </div>
 
-<div class="diy-container" >
+<div class="diy-container">
     <h1 class="diy-container-h1">Frequently Asked Questions</h1>
     <div class="diy-question" *ngFor="let question of DIYQuestions; let idx = index" (click)="showAnswer(idx)">
       <h3 class="question">{{question.question}}</h3>

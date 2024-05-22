@@ -1,11 +1,12 @@
 const express = require('express');
-const session = require('express-session'); // Consider using a more secure alternative like JWT
+const session = require('express-session');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
+const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Connect to MongoDB database
 mongoose.connect('mongodb+srv://admin:admin@project4.uxgsj2z.mongodb.net/user', {
@@ -34,34 +35,32 @@ app.use(cors());
 
 // Session management
 app.use(session({
-  secret: 'your-strong-and-unique-secret-key', // Replace with a strong, unique secret
+  secret: 'your-strong-and-unique-secret-key',
   resave: false,
   saveUninitialized: false
 }));
 
+// Serve static files from the Angular build
+app.use(express.static(path.join(__dirname, '../dist/my-app')));
+
+// Routes for your API
 app.post('/login', async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email });
-
     if (!user) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-
     const isMatch = password === user.password;
-
     if (!isMatch) {
       return res.status(401).json({ message: 'Invalid email or password' });
     }
-
     req.session.user = {
       id: user._id,
       name: user.name,
       email: user.email,
       accessLevel: user.accessLevel
     };
-
     res.status(200).json({ message: 'Login successful', user: req.session.user });
   } catch (error) {
     res.status(500).json({ message: 'Internal server error' });
@@ -216,6 +215,12 @@ app.get('/getAnswers/:questionId', (req, res) => {
     console.error('Error fetching answers:', err);
     res.status(500).json({ message: 'Error fetching answers.' });
   });
+});
+
+
+// Fallback to serve Angular's index.html for any unknown routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../dist/your-angular-app/index.html'));
 });
 
 app.listen(PORT, () => {
