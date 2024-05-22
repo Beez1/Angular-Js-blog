@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, RouterModule } from '@angular/router';  // Import RouterModule here
 import { HomeComponent } from './pages/home/home.component';
 import { SideComponent } from './side/side.component';
 import { RegisterComponent } from './register/register.component';
@@ -10,14 +10,14 @@ import { HttpClient } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
-
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
+    RouterModule,  // Ensure RouterModule is included here
     HomeComponent,
     SideComponent,
     RegisterComponent,
@@ -27,8 +27,6 @@ import { CommonModule } from '@angular/common';
     HttpClientModule,
     CommonModule,
     NavbarComponent
-
-
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
@@ -44,7 +42,10 @@ export class AppComponent implements OnInit {
   };
   users: any[] = [];
 
-  constructor(private http: HttpClient) {}
+  isHomeRoute: boolean = false;
+  userName: string | null = null;
+
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     //search user in database
@@ -56,6 +57,13 @@ export class AppComponent implements OnInit {
         console.error('Error fetching users:', error);
       }
     });
+    this.router.events.subscribe(() => {
+        this.isHomeRoute = this.router.url === '/home';
+      });
+      this.route.queryParams.subscribe(params => {
+        this.userName = params['userName'] || 'Guest';
+        console.log('User Name:', this.userName); // Para debug
+      });
   }
 
   submitForm() {
@@ -67,7 +75,6 @@ export class AppComponent implements OnInit {
           name: '',
           email: '',
           password: ''
-
         };
       },
       error: error => {
@@ -75,5 +82,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
 }

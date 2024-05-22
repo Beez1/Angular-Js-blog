@@ -5,30 +5,25 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
-
 import { AppComponent } from './app.component';
 import { DisplayQuestionsComponent } from './display-questions/display-questions.component';
-
-
 
 const routes: Routes = [
   { path: '', redirectTo: '/questions', pathMatch: 'full' },
   { path: 'questions', component: DisplayQuestionsComponent },
-  
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     DisplayQuestionsComponent,
-    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot(routes), // Import RouterModule and configure routes
-    CommonModule // Import CommonModule for ngClass
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

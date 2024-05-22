@@ -32,7 +32,7 @@ const User = mongoose.model('User', userSchema);
 app.use(bodyParser.json());
 app.use(cors());
 
-// Session management (consider using a more secure alternative like JWT)
+// Session management
 app.use(session({
   secret: 'your-strong-and-unique-secret-key', // Replace with a strong, unique secret
   resave: false,
@@ -43,38 +43,31 @@ app.post('/login', async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    // Find user by email
     const user = await User.findOne({ email });
 
     if (!user) {
-      console.log('User not found');
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Compare plain text password with stored password
-    console.log('Plain password:', password);
-    console.log('Stored password:', user.password);
     const isMatch = password === user.password;
-    console.log('Password match:', isMatch);
 
     if (!isMatch) {
-      console.log('Invalid password');
       return res.status(401).json({ message: 'Invalid email or password' });
     }
 
-    // Login successful, store sanitized user data in session (consider JWT for improved security)
     req.session.user = {
       id: user._id,
+      name: user.name,
       email: user.email,
       accessLevel: user.accessLevel
     };
 
-    res.status(200).json({ message: 'Login successful', user: req.session.user }); // Send sanitized user data (exclude password)
+    res.status(200).json({ message: 'Login successful', user: req.session.user });
   } catch (error) {
-    console.error('Error logging in:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+  
 
 // Logout route to clear session
 app.get('/logout', (req, res) => {
@@ -94,6 +87,15 @@ app.get('/protected', (req, res) => {
   }
   res.status(200).json({ message: 'Access granted' });
 });
+
+app.get('/currentUser', (req, res) => {
+  if (!req.session.user) {
+    return res.status(401).json({ message: 'Unauthorized access' });
+  }
+  res.status(200).json({ user: req.session.user });
+});
+
+  
 
 const questionSchema = new mongoose.Schema({
   title: String,
@@ -134,7 +136,7 @@ app.post('/addQuestion', (req, res) => {
 
 app.post('/saveUser', async (req, res) => {
   try {
-    const { name, email, password, accessLevel } = req.body;
+    const { name, email, password, accessLevel=0 } = req.body;
     const userData = { name, email, password, accessLevel };
     const user = new User(userData);
 

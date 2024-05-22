@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   standalone: true,
   imports: [FormsModule, HttpClientModule],
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css'] 
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
   @Input() btnText!: string;
@@ -24,21 +24,20 @@ export class RegisterComponent implements OnInit {
     password: ''
   };
 
-  constructor(private http: HttpClient, private router: Router) {} // Injeção do Router adicionada
+  constructor(private http: HttpClient, private router: Router) {}
 
   ngOnInit(): void {}
 
   submitLoginForm() {
     this.http.post<any>('http://localhost:3000/login', this.loginData).subscribe({
       next: response => {
-        console.log('Login response:', response);
-        
         this.loginData = {
           email: '',
           password: ''
         };
-        
-        this.router.navigate(['home']); 
+
+        const userName = response.user.name;
+        this.router.navigate(['/home'], { queryParams: { userName: userName } });
       },
       error: error => {
         console.error('Error login:', error);
@@ -49,17 +48,15 @@ export class RegisterComponent implements OnInit {
   submitRegisterForm() {
     this.http.post<any>('http://localhost:3000/saveUser', this.registerData).subscribe({
       next: response => {
-        console.log(response);
-        
         this.registerData = {
           email: '',
           password: ''
         };
-        
-        this.router.navigate(['/displayQuestions']); 
+
+        this.router.navigate(['/displayQuestions']);
       },
       error: error => {
-        console.error('Erro ao salvar usuário:', error);
+        console.error('Erro save user:', error);
       }
     });
   }
