@@ -10,5 +10,15 @@
     "mongoose": "^8.4.0",
     "passport": "^0.7.0",
     "passport-local": "^1.0.0"
-  }
+  },
+  "name": "angular-js-blog",
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.6.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
 }
