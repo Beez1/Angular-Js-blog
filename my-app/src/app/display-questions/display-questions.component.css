@@ -106,6 +106,39 @@
     box-sizing: border-box; /* Include padding and border in the width */
 }
 
+
+.question-container {
+    border: 2px solid #000; /* Black border */
+    padding: 20px; /* Adjust padding as needed */
+    border-radius: 10px; /* Rounded corners */
+    background-color: #000; /* Black background */
+    max-width: 800px; /* Adjust the maximum width */
+    margin: 0 auto; /* Center the div horizontally */
+    box-sizing: border-box;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.question {
+    padding: 20px 0; /* Spacing between questions */
+    border-bottom: 2px solid #333; /* Dark gray border for a sleek look */
+}
+
+.question:last-child {
+    border-bottom: none; /* Remove border for the last question */
+}
+
+.question-title {
+    margin: 0 0 10px; /* Spacing below the title */
+    font-size: 1.5em; /* Adjust the title size */
+    color: #fff; /* White text */
+}
+
+.question-text {
+    margin: 0; /* Reset margin for the text */
+    font-size: 1em; /* Adjust the text size */
+    color: #fff; /* colour */
+}
+
 .dq-answers h1 {
     margin: 0; /* Remove default margin for h1 */
 }

@@ -1,62 +1,50 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { RouterOutlet, RouterModule } from '@angular/router';  
 import { HttpClientModule } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
+
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [FormsModule, HttpClientModule],
+  imports: [CommonModule, RouterOutlet, RouterModule, FormsModule, HttpClientModule], // Remove HttpClientModule
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
+
+
 export class RegisterComponent implements OnInit {
   @Input() btnText!: string;
 
-  loginData = {
+  userData = {
+    name: '',
     email: '',
-    password: ''
+    password: '',
+    acessLevel: 1
   };
+  users: any[] = [];
 
-  registerData = {
-    email: '',
-    password: ''
-  };
-
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private authService: AuthService, private router: Router, private http: HttpClientModule) {}
 
   ngOnInit(): void {}
 
-  submitLoginForm() {
-    this.http.post<any>('http://localhost:3000/login', this.loginData).subscribe({
+  submitForm() {
+    this.authService.register(this.userData.name, this.userData.email, this.userData.password, this.userData.acessLevel).subscribe({
       next: response => {
-        this.loginData = {
-          email: '',
-          password: ''
-        };
-
-        const userName = response.user.name;
-        this.router.navigate(['/home'], { queryParams: { userName: userName } });
+        this.userData = {
+             name: '',
+             email: '',
+             password: '',
+            acessLevel: 1
+            };
+            // Redireciona para a página desejada após o registro bem-sucedido
+            this.router.navigate(['/displayQuestions']);
       },
       error: error => {
-        console.error('Error login:', error);
-      }
-    });
-  }
-
-  submitRegisterForm() {
-    this.http.post<any>('http://localhost:3000/saveUser', this.registerData).subscribe({
-      next: response => {
-        this.registerData = {
-          email: '',
-          password: ''
-        };
-
-        this.router.navigate(['/displayQuestions']);
-      },
-      error: error => {
-        console.error('Erro save user:', error);
+        console.error('Error register question', error);
       }
     });
   }

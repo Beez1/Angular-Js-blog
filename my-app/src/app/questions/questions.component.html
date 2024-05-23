@@ -1,24 +1,46 @@
-<div class="container mt-5">
-    <form (ngSubmit)="submitForm2()" class="row g-3">
-        <div class="form-group col-md-6 offset-md-3">
-            <label class="form-label" for="title">Title:</label>
-            <input type="text" class="form-control" id="title" name="title" [(ngModel)]="questionData.title" required>
-        </div>
-        <div class="form-group col-md-6 offset-md-3">
-            <label class="form-label" for="categories">Categories:</label>
-            <select class="form-control" id="categories" name="categories" [(ngModel)]="questionData.categories" required>
-                <option value="">Create New Category</option>
-                <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
-            </select>
-            <input type="text" class="form-control mt-2" placeholder="New Category" [(ngModel)]="newCategory" name="newCategory">
-            <button type="button" class="btn btn-secondary mt-2" (click)="addCategory()">Add Category</button>
-        </div>
-        <div class="form-group col-md-6 offset-md-3">
-            <label class="form-label" for="question_content">Question:</label>
-            <textarea class="form-control" id="question_content" name="question_content" rows="5" [(ngModel)]="questionData.question" required></textarea>
-        </div>
-        <div class="col-md-6 offset-md-3">
-            <button type="submit" class="btn btn-primary">Create Post</button>
-        </div>
-    </form>
+<div class="navbar">
+  <div class="navbar-grid">
+      <div class="navbar-links">
+        <a [routerLink]="'/home'">Home</a>                
+        <a [routerLink]="'/displayQuestions'">Curious</a>
+        <a [routerLink]="'/register'">Registration</a>
+        <a [routerLink]="'/questions'">Ask a question</a>
+        <a [routerLink]="'/adminTools'">Admin Tools</a>
+      </div>
+      <div class="navbar-search">
+          <input type="text" placeholder="Search">
+          <button type="submit">🔍</button>
+      </div>
+  </div>
 </div>
+<div class="form-container">
+  <h2>Submit Your Question</h2>
+  <form action="#" method="post">
+      <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="username" required>
+      </div>
+      <div class="form-group">
+          <label for="title">Title</label>
+          <input type="text" id="title" name="title" required>
+      </div>
+      <div class="form-group">
+          <label for="question">Question</label>
+          <textarea id="question" name="question" required></textarea>
+      </div>
+      <div class="form-group">
+          <label for="category">Category</label>
+          <select id="category" name="category" required>
+              <option value="">Select a category</option>
+              <option value="general">General</option>
+              <option value="technical">Technical</option>
+              <option value="support">Support</option>
+              <option value="feedback">Feedback</option>
+          </select>
+      </div>
+      <button type="submit" class="submit-btn">Submit</button>
+  </form>
+</div>
+<div class="footer">
+    © 2024 Buzz Brains Blog
+    </div>

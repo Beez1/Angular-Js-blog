@@ -1,56 +1,60 @@
-
-  
-<div class="login-wrap">
-    <div class="login-html">
-        <input id="tab-1" type="radio" name="tab" class="sign-in" checked>
-        <label for="tab-1" class="tab">Log in</label>
-        <input id="tab-2" type="radio" name="tab" class="sign-up">
-        <label for="tab-2" class="tab">Sign Up</label>
-        <div class="login-form">
-            <form (ngSubmit)="submitLoginForm()">
-                <div class="sign-in-htm">
-                    <div class="group">
-                        <label for="email" class="label">Email</label>
-                        <input id="email" type="text" class="input" [(ngModel)]="loginData.email" name="email" required>
-                    </div>
-                    <div class="group">
-                        <label for="password" class="label">Password</label>
-                        <input id="password" type="password" class="input" data-type="password"
-                            [(ngModel)]="loginData.password" name="password" required>
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Log in">
-                    </div>
-                    <div class="hr"></div>
-                    <div class="foot-lnk">
-
-                    </div>
-                </div>
-            </form>
-            <form (ngSubmit)="submitRegisterForm()">
-                <div class="sign-up-htm">
-                    <div class="group">
-                        <label for="reg-email" class="label">Email</label>
-                        <input id="reg-email" type="text" class="input" [(ngModel)]="registerData.email" name="email" required>
-                    </div>
-                    <div class="group">
-                        <label for="reg-password" class="label">Password</label>
-                        <input id="reg-password" type="password" class="input" data-type="password"
-                            [(ngModel)]="registerData.password" name="password" required>
-                    </div>
-                    <div class="group">
-                        <label for="password_confirmation" class="label">Repeat password:</label>
-                        <input type="password" id="password_confirmation" name="password_confirmation" class="input"
-                            required>
-                    </div>
-                    <div class="group">
-                        <input type="submit" class="button" value="Sign Up">
-                    </div>
-                </div>
-            </form>
+<div class="navbar">
+    <div class="navbar-grid">
+        <div class="navbar-links">
+          <a [routerLink]="'/home'">Home</a>                
+          <a [routerLink]="'/displayQuestions'">Curious</a>
+          <a [routerLink]="'/register'">Registration</a>
+          <a [routerLink]="'/questions'">Ask a question</a>
+          <a [routerLink]="'/adminTools'">Admin Tools</a>
+        </div>
+        <div class="navbar-search">
+            <input type="text" placeholder="Search">
+            <button type="submit">🔍</button>
         </div>
     </div>
 </div>
-<div class="footer">
-    © 2024 Buzz Brains Blog
+<div class="login-wrap">
+  <div class="login-html">
+    <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+    <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Sign Up</label>
+    <div class="login-form">
+      <div class="sign-in-htm">
+        <div class="group">
+          <label for="user" class="label">Username</label>
+          <input id="user" type="text" class="input">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Password</label>
+          <input id="pass" type="password" class="input" data-type="password">
+        </div>
+        <div class="group">
+          <input id="check" type="checkbox" class="check" checked>
+          <label for="check"><span class="icon"></span> Keep me Signed in</label>
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="Sign In">
+        </div>
+        <div class="hr"></div>
+        <div class="foot-lnk">
+        
+        </div>
+      </div>
+      <div class="sign-up-htm">
+        <div class="group">
+          <label for="user" class="label">Username</label>
+          <input id="user" type="text" class="input">
+        </div>
+        <div class="group">
+          <label for="pass" class="label">Password</label>
+          <input id="pass" type="password" class="input" data-type="password">
+        </div>
+        <div class="group">
+          <input type="submit" class="button" value="Sign Up">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
+<div class="footer">
+  © 2024 Buzz Brains Blog
+  </div>

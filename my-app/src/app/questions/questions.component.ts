@@ -1,10 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { RouterOutlet, RouterModule } from '@angular/router';  
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-questions',
@@ -23,14 +23,16 @@ export class QuestionsComponent implements OnInit {
       author: '',
       upvotes: '',
       date: '',
-      answered: false  // Inicializar como booleano
+      answered: ''
     };
 
     categories: string[] = []; // Array to store categories
     newCategory: string = ''; // Variable to store new category
   
     constructor(private http: HttpClient, private router: Router, private cdRef: ChangeDetectorRef) {}
+    
 
+  
     ngOnInit(): void {
         this.loadCategories();
     }
@@ -47,11 +49,11 @@ export class QuestionsComponent implements OnInit {
           });
       }
 
-    trackByCategory(index: number, category: string): string {
+      trackByCategory(index: number, category: string): string {
         return category;
-    }
+      }
       
-    addCategory() {
+      addCategory() {
         if (this.newCategory.trim()) {
           this.http.post<any>('http://localhost:3000/addCategory', { name: this.newCategory.trim() })
             .subscribe({
@@ -67,7 +69,8 @@ export class QuestionsComponent implements OnInit {
               }
             });
         }
-    }
+      }
+      
       
     submitForm2() {
       this.http.post<any>('http://localhost:3000/addQuestion', this.questionData).subscribe({
@@ -80,7 +83,7 @@ export class QuestionsComponent implements OnInit {
             author: '',
             upvotes: '',
             date: '',
-            answered: false  // Reset como booleano
+            answered: ''
           };
           this.router.navigate(['/displayQuestions']);
         },

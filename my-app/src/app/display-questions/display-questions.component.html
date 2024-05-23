@@ -1,38 +1,55 @@
-
+<div class="navbar">
+  <div class="navbar-grid">
+      <div class="navbar-links">
+        <a [routerLink]="'/home'">Home</a>                
+        <a [routerLink]="'/displayQuestions'">Curious</a>
+        <a [routerLink]="'/register'">Registration</a>
+        <a [routerLink]="'/questions'">Ask a question</a>
+        <a [routerLink]="'/adminTools'">Admin Tools</a>
+      </div>
+      <div class="navbar-search">
+          <input type="text" placeholder="Search">
+          <button type="submit">🔍</button>
+      </div>
+  </div>
+</div>
 
 <div class="dq-answers">
   <h1>Dear Curious Cat, here are questions, that have been answered previously.</h1>
 </div>
 
-<!--display questions from database with answers -->
-<div class="container mt-5">
-    <div class="row">
-      <div class="col-md-6 mb-4" *ngFor="let quest of question">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Title: {{ quest.title }}</h5>
-            <h6 class="card-subtitle mb-2 text-muted">Category: {{ quest.categories }}</h6>
-            <p class="card-text">Question: {{ quest.question }}</p>
-            <hr>
-            <p class="card-text"><strong>Author:</strong> {{ quest.author }}</p>
-            <div class="d-flex justify-content-between">
-              <p class="card-text mb-0"><strong>Upvotes:</strong> {{ quest.upvotes }}</p>
-              <p class="card-text mb-0"><strong>Date:</strong> {{ quest.date }}</p>
-            </div>
-            <p class="card-text mt-2">
-              <strong>Answered:</strong>
-              <span class="badge" [ngClass]="{'bg-success': quest.answered, 'bg-danger': !quest.answered}">
-                {{ quest.answered ? 'Yes' : 'No' }}
-              </span>
-            </p>
-           <!-- <a [routerLink]="['/question', quest.id]" class="btn btn-primary">Read More</a>-->
-          </div>
-        </div>
-      </div>
-    </div>
+<div class="question-container">
+  <div class="question">
+      <h2 class="question-title">Question 1</h2>
+      <p class="question-text">How can I repaint old furniture?</p>
+      <p class="question-text">To repaint old furniture, start by cleaning the surface thoroughly and sanding it to create a smooth base. Then, apply a primer to help the new paint adhere better. Once the primer is dry, apply your desired paint color using a brush or roller. Allow the paint to dry completely between coats, and finish with a protective sealant if desired.</p>
   </div>
-  
-<!--display questions from database with answers-->
+  <div class="question">
+      <h2 class="question-title">Question 2</h2>
+      <p class="question-text">What tools do I need to install laminate flooring?</p>
+      <p class="question-text">To install laminate flooring, you will need a few basic tools including a tape measure, a saw (circular saw or handsaw), a tapping block, a pull bar, spacers, and a rubber mallet. Additionally, you may need a jigsaw or miter saw for cutting the planks to fit around obstacles.</p>
+  </div>
+  <div class="question">
+      <h2 class="question-title">Question 3</h2>
+      <p class="question-text">How can I create a gallery wall?</p>
+      <p class="question-text">To create a gallery wall, start by gathering your frames and artwork. Lay out the frames on the floor to plan your arrangement before hanging them on the wall. Use a level and measuring tape to ensure the frames are evenly spaced and aligned. Consider mixing frame sizes and styles for visual interest.</p>
+  </div>
+  <div class="question">
+      <h2 class="question-title">Question 4</h2>
+      <p class="question-text">What are some easy woodworking projects for beginners?</p>
+      <p class="question-text">Some easy woodworking projects for beginners include building a simple shelf, a wooden planter box, a birdhouse, or a basic bench. These projects typically require basic tools like a saw, drill, hammer, and sandpaper, and can be completed in a weekend.</p>
+  </div>
+  <div class="question">
+      <h2 class="question-title">Question 5</h2>
+      <p class="question-text">How can I make my own candles?</p>
+      <p class="question-text">To make your own candles, you will need wax, wicks, fragrance oils (if desired), and containers for the candles. Melt the wax in a double boiler, add fragrance oil if desired, and pour the melted wax into the containers. Insert the wicks and allow the candles to cool and harden before trimming the wicks.</p>
+  </div>
+  <div class="question">
+      <h2 class="question-title">Question 6</h2>
+      <p class="question-text">What are some tips for upcycling old clothing?</p>
+      <p class="question-text">When upcycling old clothing, consider cutting fabric into smaller pieces to create patches, quilts, or tote bags. You can also use fabric dye to change the color of clothing or add embellishments like embroidery or appliqué to give them a new look.</p>
+  </div>
+</div>
 
 <div class="footer">
   © 2024 Buzz Brains Blog

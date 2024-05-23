@@ -1,39 +1,83 @@
-<div>
-    <label for="filterAnswered">Filter by Answered:</label>
-    <select id="filterAnswered" [(ngModel)]="answeredFilter" (change)="filterQuestions()">
-        <option value="">All</option>
-        <option value="true">Answered</option>
-        <option value="false">Unanswered</option>
-    </select>
+<div class="navbar">
+  <div class="navbar-grid">
+      <div class="navbar-links">
+        <a [routerLink]="'/home'">Home</a>                
+        <a [routerLink]="'/displayQuestions'">Curious</a>
+        <a [routerLink]="'/register'">Registration</a>
+        <a [routerLink]="'/questions'">Ask a question</a>
+        <a [routerLink]="'/adminTools'">Admin Tools</a>
+      </div>
+      <div class="navbar-search">
+          <input type="text" placeholder="Search">
+          <button type="submit">🔍</button>
+      </div>
+  </div>
 </div>
 
-<div class="col-md-6 mb-4" *ngFor="let quest of filteredQuestions">
-    <div class="post">
-        <div class="post-title">{{ quest.title }}</div>
-        <div class="post-username">Posted by: user1</div>
-        <div class="post-content">{{ quest.question }}</div>
-        <div class="post-author">{{ quest.author }}</div>
-        <div class="post-category">{{ quest.category }}</div>
-        <div class="post-actions">
-            <button class="view-button" (click)="toggleAnswerBox(quest)">Answer</button>
-            <button class="view-button" (click)="showAnswers(quest)">Show Answers</button>
-            <strong>Answered:</strong>
-            <span class="badge" [ngClass]="{'bg-success': quest.answered, 'bg-danger': !quest.answered}">
-                {{ quest.answered ? 'Yes' : 'No' }}
-            </span>
-        </div>
-        <div *ngIf="quest.showAnswerBox">
-            <textarea [(ngModel)]="quest.userAnswer" placeholder="Write your answer here"></textarea>
-            <button (click)="sendAnswer(quest)">Send Answer</button>
-        </div>
-        <div *ngIf="quest.showAnswers">
-            <div *ngFor="let answer of quest.answers">
-                <div class="answer-content">{{ answer.answer }}</div>
-                <div class="answer-date">{{ answer.date | date: 'short' }}</div>
-            </div>
-        </div>
-    </div>
+
+<div class="post">
+  <div class="post-title">How can I repaint old furniture?</div>
+  <div class="post-username">Posted by: user1</div>
+  <div class="post-content">To repaint old furniture, start by cleaning the surface thoroughly and sanding it to create a smooth base. Then, apply a primer to help the new paint adhere better. Once the primer is dry, apply your desired paint color using a brush or roller. Allow the paint to dry completely between coats, and finish with a protective sealant if desired.</div>
+  <div class="post-actions">
+    <button class="edit-button">Edit</button>
+    <button class="delete-button">Delete</button>
+    <button class="view-button">View</button>
+  </div>
 </div>
-<div class="footer">
-    © 2024 Buzz Brains Blog
+
+<div class="post">
+  <div class="post-title">What tools do I need to install laminate flooring?</div>
+  <div class="post-username">Posted by: user2</div>
+  <div class="post-content">Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+  <div class="post-actions">
+    <button class="edit-button">Edit</button>
+    <button class="delete-button">Delete</button>
+    <button class="view-button">View</button>
+  </div>
 </div>
+
+<div class="post">
+  <div class="post-title">How can I create a gallery wall?</div>
+  <div class="post-username">Posted by: user3</div>
+  <div class="post-content">To create a gallery wall, start by gathering your frames and artwork. Lay out the frames on the floor to plan your arrangement before hanging them on the wall. Use a level and measuring tape to ensure the frames are evenly spaced and aligned. Consider mixing frame sizes and styles for visual interest.</div>
+  <div class="post-actions">
+      <button class="edit-button">Edit</button>
+      <button class="delete-button">Delete</button>
+      <button class="view-button">View</button>
+  </div>
+</div>
+<div class="post">
+  <div class="post-title">What are some easy woodworking projects for beginners?</div>
+  <div class="post-username">Posted by: user4</div>
+  <div class="post-content">Some easy woodworking projects for beginners include building a simple shelf, a wooden planter box, a birdhouse, or a basic bench. These projects typically require basic tools like a saw, drill, hammer, and sandpaper, and can be completed in a weekend.</div>
+  <div class="post-actions">
+      <button class="edit-button">Edit</button>
+      <button class="delete-button">Delete</button>
+      <button class="view-button">View</button>
+  </div>
+</div>
+<div class="post">
+  <div class="post-title">How can I make my own candles?</div>
+  <div class="post-username">Posted by: user5</div>
+  <div class="post-content">To make your own candles, you will need wax, wicks, fragrance oils (if desired), and containers for the candles. Melt the wax in a double boiler, add fragrance oil if desired, and pour the melted wax into the containers. Insert the wicks and allow the candles to cool and harden before trimming the wicks.</div>
+  <div class="post-actions">
+      <button class="edit-button">Edit</button>
+      <button class="delete-button">Delete</button>
+      <button class="view-button">View</button>
+  </div>
+</div>
+<div class="post">
+  <div class="post-title">What are some tips for upcycling old clothing?</div>
+  <div class="post-username">Posted by: user6</div>
+  <div class="post-content">When upcycling old clothing, consider cutting fabric into smaller pieces to create patches, quilts, or tote bags. You can also use fabric dye to change the color of clothing or add embellishments like embroidery or appliqué to give them a new look.
+  </div>
+  <div class="post-actions">
+    <button class="edit-button">Edit</button>
+    <button class="delete-button">Delete</button>
+    <button class="view-button">View</button>
+  </div>
+</div>
+    <div class="footer">
+  © 2024 Buzz Brains Blog
+  </div>
